@@ -1,4 +1,4 @@
-package com.example.demo.ControllerTest;
+package com.example.demo.ControllerTest.UpisController;
 
 import com.example.demo.DTO.PolaznikDTO;
 import com.example.demo.DTO.ProgramObrazovanjaDTO;

@@ -1,4 +1,4 @@
-package com.example.demo.ControllerTest.UpisController;
+package com.example.demo.ControllerTest;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
