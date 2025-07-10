@@ -36,10 +36,16 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable)
+                .headers(headers -> headers
+                        .frameOptions(frame -> frame
+                                .sameOrigin()
+                        )
+                )
                 .cors(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests((authorize) -> authorize
                         .requestMatchers("/auth/api/v1/login", "/auth/api/v1/refreshToken").permitAll()
-                        .requestMatchers("/api/v1/**", "/hardware**").authenticated())
+                        .requestMatchers("/h2-console/**").permitAll()
+                        .requestMatchers("/api/v1/**", "/polaznici**").authenticated())
                 .sessionManagement((session) -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider())
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
