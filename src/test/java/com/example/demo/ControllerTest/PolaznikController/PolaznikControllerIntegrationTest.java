@@ -49,7 +49,7 @@ class PolaznikControllerIntegrationTest {
 
         PolaznikDTO createdDto = objectMapper.readValue(response, PolaznikDTO.class);
 
-        // Get by id
+
         mockMvc.perform(get("/polaznici/" + createdDto.id))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.ime").value("Gabi"))
